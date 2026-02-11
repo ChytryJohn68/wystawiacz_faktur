@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\wystawiacz_faktur.DTO\wystawiacz_faktur.DTO.csproj" />
+    <ProjectReference Include="..\wystawiacz_faktur.repository\wystawiacz_faktur.repository.csproj" />
+  </ItemGroup>
+
+</Project>
