@@ -8,7 +8,14 @@ namespace MyApp.Api.Controllers
         {
             return View();
         }
-        
+        public string[] Get()
+        {
+            return new string[]
+            {
+        "Hello",
+        "World"
+            };
+        }
     }
 
 }
