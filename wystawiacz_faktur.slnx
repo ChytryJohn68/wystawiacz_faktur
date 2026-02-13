@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="MyApp.Api/MyApp.Api.csproj" Id="91df4b70-cf0a-4e39-8a43-46dbd9112134" />
   <Project Path="wystawiacz_faktur.DTO/wystawiacz_faktur.DTO.csproj" Id="deb530dd-ae52-47a1-8451-684edfbb7ae5" />
   <Project Path="wystawiacz_faktur.model/wystawiacz_faktur.model.csproj" />
   <Project Path="wystawiacz_faktur.repository/wystawiacz_faktur.repository.csproj" Id="689ae11c-3af0-4bf6-a840-21d9ea759d6f" />

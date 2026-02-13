@@ -15,7 +15,7 @@ namespace wystawiacz_faktur.repository
         public IList<KontrahentListItemDTO> PobierzKontrahentList()
         {
             var result = new List<KontrahentListItemDTO>();
-            var connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
+            var connStr = "server=localhost;database=db;user=root;password=DBServer12;";
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
@@ -52,7 +52,7 @@ namespace wystawiacz_faktur.repository
         public IList<AddKontrahentListItemDTO> DodajKontrahentList(IList<AddKontrahentListItemDTO> lista)
         {
             
-            var connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
+            var connStr = "server=localhost;database=db;user=root;password=DBServer12;";
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
@@ -74,7 +74,7 @@ namespace wystawiacz_faktur.repository
 
         public IList<DropKontrahentListItemDTO> UsunKontrahentList(IList<DropKontrahentListItemDTO> lista)
         {
-            var connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
+            var connStr = "server=localhost;database=db;user=root;password=DBServer12;";
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
@@ -91,7 +91,7 @@ namespace wystawiacz_faktur.repository
         public IList<UpdateKontrahentListItemDTO> DownloadForUpdateKontrahentList(int idNabywca)
         {
             var lista = new List<UpdateKontrahentListItemDTO>();
-            var connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
+            var connStr = "server=localhost;database=db;user=root;password=DBServer12;";
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
@@ -133,14 +133,20 @@ namespace wystawiacz_faktur.repository
         }
         public IList<UpdateKontrahentListItemDTO> UpdateKontrahentList(IList<UpdateKontrahentListItemDTO> lista)
         {
-            var connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
+            var connStr = "server=localhost;database=db;user=root;password=DBServer12;";
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                using (var sql = new MySqlCommand("UPDATE kontrahent SET nazwa = @nazwa WHERE id_nabywca = @id_nabywca", conn))
+                using (var sql = new MySqlCommand("UPDATE kontrahent SET nazwa = @nazwa, NIP = @NIP, adres = @adres, numer_konta = @numer_konta, kod_pocztowy = @kod_pocztowy, miasto = @miasto, typ = @typ WHERE id_nabywca = @id_nabywca", conn))
                 {
                     sql.Parameters.AddWithValue("@id_nabywca", lista[0].id_nabywca);
                     sql.Parameters.AddWithValue("@nazwa", lista[0].nazwa);
+                    sql.Parameters.AddWithValue("@NIP", lista[0].NIP);
+                    sql.Parameters.AddWithValue("@adres", lista[0].adres);
+                    sql.Parameters.AddWithValue("@numer_konta", lista[0].numer_konta);
+                    sql.Parameters.AddWithValue("@kod_pocztowy", lista[0].kod_pocztowy);
+                    sql.Parameters.AddWithValue("@miasto", lista[0].miasto);
+                    sql.Parameters.AddWithValue("@typ", lista[0].typ);
 
                     sql.ExecuteNonQuery();
                 }

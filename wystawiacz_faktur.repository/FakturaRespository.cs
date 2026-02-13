@@ -12,7 +12,7 @@ namespace wystawiacz_faktur.repository
         public IList<FakturaListItemDTO> PobierzFakturaList()
         {
             var result = new List<FakturaListItemDTO>();
-            var connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
+            var connStr = "server=localhost;database=db;user=root;password=DBServer12;";
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
