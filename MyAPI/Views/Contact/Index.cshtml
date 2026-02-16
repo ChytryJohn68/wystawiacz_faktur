@@ -1,9 +1,27 @@
-﻿@model IEnumerable<wystawiacz_faktur.DTO.KontrahentListItemDTO>
+﻿﻿
+@model IEnumerable<wystawiacz_faktur.DTO.KontrahentListItemDTO>
 
 @{
     ViewData["Title"] = "Lista Kontrahentów";
 }
-
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .table th, .table td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+    .table th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+    .input {
+        padding: 8px;
+        margin-top: 10px;
+    }
+</style>
 <h1>Kontrahenci Lista</h1>
 
 <table class="table table-striped">
@@ -29,3 +47,4 @@
         }
     </tbody>
 </table>
+<a href="/contact/Create" class="btn btn-primary">Dodaj dane</a>

@@ -1,4 +1,4 @@
-namespace MyApp.Api
+namespace MyAPI
 {
     public class WeatherForecast
     {
