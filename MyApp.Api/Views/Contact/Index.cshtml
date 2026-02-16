@@ -1,0 +1,31 @@
+﻿@model IEnumerable<wystawiacz_faktur.DTO.KontrahentListItemDTO>
+
+@{
+    ViewData["Title"] = "Lista Kontrahentów";
+}
+
+<h1>Kontrahenci Lista</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>NIP</th>
+            <th>adres</th>
+            <th>Numer Konta</th>
+            <th>Typ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.nazwa</td>
+                <td>@k.NIP</td>
+                <td>@k.adres</td>
+                <td>@k.numer_konta</td>
+                <td>@k.typ</td>
+            </tr>
+        }
+    </tbody>
+</table>
