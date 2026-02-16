@@ -97,6 +97,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aktualizuj_prod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aktualizuj_prod.Designer.cs">
+      <DependentUpon>Aktualizuj_prod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dodawanie_prod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Aktualizuj_prod.resx">
+      <DependentUpon>Aktualizuj_prod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dodawanie_prod.resx">
       <DependentUpon>Dodawanie_prod.cs</DependentUpon>
     </EmbeddedResource>

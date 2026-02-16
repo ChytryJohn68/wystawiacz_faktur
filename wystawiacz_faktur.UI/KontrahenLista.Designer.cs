@@ -38,12 +38,17 @@
             this.colnumer_konta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coltyp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 78);
+            this.button1.Location = new System.Drawing.Point(26, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 50);
             this.button1.TabIndex = 0;
@@ -53,7 +58,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(155, 78);
+            this.button2.Location = new System.Drawing.Point(184, 22);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 50);
             this.button2.TabIndex = 1;
@@ -63,7 +68,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(314, 78);
+            this.button3.Location = new System.Drawing.Point(343, 22);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(151, 50);
             this.button3.TabIndex = 2;
@@ -73,6 +78,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colid_nabywca,
@@ -80,11 +86,12 @@
             this.coladres,
             this.colnumer_konta,
             this.coltyp});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 134);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(975, 365);
+            this.dataGridView1.Size = new System.Drawing.Size(987, 379);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
@@ -136,7 +143,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(863, 36);
+            this.button4.Location = new System.Drawing.Point(578, 15);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 65);
             this.button4.TabIndex = 3;
@@ -144,18 +151,42 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.button4);
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Size = new System.Drawing.Size(987, 502);
+            this.splitContainer1.SplitterDistance = 119;
+            this.splitContainer1.TabIndex = 4;
+            // 
             // KontrahenLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.dataGridView1);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.Red;
+            this.Controls.Add(this.splitContainer1);
             this.Name = "KontrahenLista";
-            this.Size = new System.Drawing.Size(984, 499);
+            this.Size = new System.Drawing.Size(987, 502);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -171,5 +202,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colnumer_konta;
         private System.Windows.Forms.DataGridViewTextBoxColumn coltyp;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

@@ -22,6 +22,11 @@ namespace wystawiacz_faktur.UI
             
 
         }
+        public enum TrybOtwarciaOkna
+        {
+            Nowy,
+            Edycja
+        }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -73,8 +78,8 @@ namespace wystawiacz_faktur.UI
             });
             service.DodajKontrahentList(result);
             MessageBox.Show("Dodano kontrahenta");
+            this.Close();
 
-        
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -84,19 +89,14 @@ namespace wystawiacz_faktur.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
         
 
 }
 
 }
-public enum TrybOtwarciaOkna
-{
-    Nowy,
-    Edycja,
-    Podglad
-}
+
 
         
 

@@ -28,113 +28,220 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colnazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coladres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colnumer_konta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colkod_pocztowy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colmiasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coltyp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // panel1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colnazwa,
-            this.colNIP,
-            this.coladres,
-            this.colnumer_konta,
-            this.colkod_pocztowy,
-            this.colmiasto,
-            this.coltyp});
-            this.dataGridView1.Location = new System.Drawing.Point(-4, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1440, 451);
-            this.dataGridView1.TabIndex = 0;
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.maskedTextBox2);
+            this.panel1.Controls.Add(this.maskedTextBox1);
+            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 450);
+            this.panel1.TabIndex = 0;
             // 
-            // colnazwa
+            // label1
             // 
-            this.colnazwa.DataPropertyName = "nazwa";
-            this.colnazwa.HeaderText = "Nazwa";
-            this.colnazwa.MinimumWidth = 6;
-            this.colnazwa.Name = "colnazwa";
-            this.colnazwa.Width = 125;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(66, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "nazwa";
             // 
-            // colNIP
+            // label2
             // 
-            this.colNIP.DataPropertyName = "NIP";
-            this.colNIP.HeaderText = "NIP";
-            this.colNIP.MinimumWidth = 6;
-            this.colNIP.Name = "colNIP";
-            this.colNIP.Width = 125;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(66, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "nip";
             // 
-            // coladres
+            // label3
             // 
-            this.coladres.DataPropertyName = "adres";
-            this.coladres.HeaderText = "Adres";
-            this.coladres.MinimumWidth = 6;
-            this.coladres.Name = "coladres";
-            this.coladres.Width = 125;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(66, 162);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "adres";
             // 
-            // colnumer_konta
+            // label4
             // 
-            this.colnumer_konta.DataPropertyName = "numer_konta";
-            this.colnumer_konta.HeaderText = "Numer Konta";
-            this.colnumer_konta.MinimumWidth = 6;
-            this.colnumer_konta.Name = "colnumer_konta";
-            this.colnumer_konta.Width = 125;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(66, 219);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "numer konta";
             // 
-            // colkod_pocztowy
+            // label5
             // 
-            this.colkod_pocztowy.DataPropertyName = "kod_pocztowy";
-            this.colkod_pocztowy.HeaderText = "Kod Pocztowy";
-            this.colkod_pocztowy.MinimumWidth = 6;
-            this.colkod_pocztowy.Name = "colkod_pocztowy";
-            this.colkod_pocztowy.Width = 125;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(318, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 16);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "kod pocztowy";
             // 
-            // colmiasto
+            // label6
             // 
-            this.colmiasto.DataPropertyName = "miasto";
-            this.colmiasto.HeaderText = "Miasto";
-            this.colmiasto.MinimumWidth = 6;
-            this.colmiasto.Name = "colmiasto";
-            this.colmiasto.Width = 125;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(318, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 16);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "miasto";
             // 
-            // coltyp
+            // label7
             // 
-            this.coltyp.DataPropertyName = "typ";
-            this.coltyp.HeaderText = "Typ";
-            this.coltyp.MinimumWidth = 6;
-            this.coltyp.Name = "coltyp";
-            this.coltyp.Width = 125;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(318, 162);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 16);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "typ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Nabywca",
+            "Sprzedawca"});
+            this.comboBox1.Location = new System.Drawing.Point(321, 181);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(141, 24);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(69, 64);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(136, 22);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(69, 181);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(136, 22);
+            this.textBox3.TabIndex = 10;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(321, 64);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(141, 22);
+            this.textBox5.TabIndex = 12;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(321, 124);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(141, 22);
+            this.textBox6.TabIndex = 13;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(69, 124);
+            this.maskedTextBox1.Mask = "000000000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(136, 22);
+            this.maskedTextBox1.TabIndex = 14;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(69, 238);
+            this.maskedTextBox2.Mask = "000000000000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(136, 22);
+            this.maskedTextBox2.TabIndex = 15;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(53, 342);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(167, 57);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "zatwierdz";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(240, 342);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(167, 57);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "anuluj";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // OknoAktualizowania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1436, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(784, 450);
+            this.Controls.Add(this.panel1);
             this.Name = "OknoAktualizowania";
             this.Text = "OknoAktualizowania";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colnazwa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNIP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coladres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colnumer_konta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colkod_pocztowy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colmiasto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coltyp;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

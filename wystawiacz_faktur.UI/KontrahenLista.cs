@@ -24,21 +24,7 @@ namespace wystawiacz_faktur.UI
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
 
-            dataGridView1.DataSource = KontrahentService.PobierzKontrahentList();
-
-            //String connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
-            //using (MySqlConnection conn = new MySqlConnection(connStr))
-            //{
-            //    conn.Open();
-
-            //    String sql = "SELECT nazwa, adres, numer_konta, typ FROM kontrahent";
-            //    MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn);
-
-            //    DataTable dt = new DataTable();
-            //    adapter.Fill(dt);
-            //    dataGridView1.DataSource = dt;
-            //}
-
+            dataGridView1.DataSource = KontrahentService.PobierzKontrahentList();           
         }
 
         private void buttonPanel_Paint(object sender, PaintEventArgs e)
@@ -100,7 +86,8 @@ namespace wystawiacz_faktur.UI
             int id = selectedObject.id_nabywca;
             var service = new KontrahentService();
             
-
+            MessageBox.Show(id.ToString());
+            MessageBox.Show(service.UpdateKontrahentList(service.DownloadForUpdateKontrahentList(id)).FirstOrDefault().adres);
             var okno = new OknoAktualizowania(id);
             okno.ShowDialog();
         }

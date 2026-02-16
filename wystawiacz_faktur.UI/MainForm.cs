@@ -19,11 +19,13 @@ namespace wystawiacz_faktur.UI
 
             panel2.Controls.Add(new KontrahenLista()
             {
-                Name = "KontrahenLista"
+                Name = "KontrahenLista", Dock = DockStyle.Fill,
+                
             });
             panel2.Controls.Add(new ProduktLista()
             {
-                Name = "ProduktLista"
+                Name = "ProduktLista",
+                Dock = DockStyle.Fill,
             });
 
             

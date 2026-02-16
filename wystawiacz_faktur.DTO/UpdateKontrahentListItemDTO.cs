@@ -6,9 +6,7 @@ namespace wystawiacz_faktur.DTO
 {
     public class UpdateKontrahentListItemDTO
     {
-        public int idNabywca { get; set; }
-
-        public string id_nabywca { get; set; }
+        public int id_nabywca { get; set; }
         public string nazwa { get; set; }
         public string NIP { get; set; }
         public string adres { get; set; }

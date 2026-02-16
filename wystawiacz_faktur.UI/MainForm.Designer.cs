@@ -45,7 +45,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(708, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(708, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,14 +74,17 @@
             // 
             // panel2
             // 
+            this.panel2.AutoSize = true;
+            this.panel2.BackColor = System.Drawing.Color.LimeGreen;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 28);
+            this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(708, 357);
+            this.panel2.Size = new System.Drawing.Size(708, 355);
             this.panel2.TabIndex = 1;
             // 
             // MainForm
             // 
+            this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(708, 385);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
