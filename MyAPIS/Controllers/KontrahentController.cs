@@ -44,9 +44,9 @@ namespace MyApp.Api.Controllers
         }
 
         [HttpGet("kontrahent-do-update/{id}")]
-        public ActionResult PobierzKontrahentDoUpdate(int id)
+        public ActionResult<IList<UpdateKontrahentListItemDTO>> PobierzKontrahentDoUpdate(int idProd)
         {
-            var wynik = _kontrahentService.DownloadForUpdateKontrahentList(id);
+            var wynik = _kontrahentService.DownloadForUpdateKontrahentList(idProd);
             return Ok(wynik);
         }
     }

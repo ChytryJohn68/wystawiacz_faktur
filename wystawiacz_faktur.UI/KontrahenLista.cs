@@ -24,9 +24,9 @@ namespace wystawiacz_faktur.UI
         {
 
             InitializeComponent();
-            this.Load += ProduktLista_Load;
+            this.Load += KontrahentLista_Load;
         }
-        private async void ProduktLista_Load(object sender, EventArgs e)
+        private async void KontrahentLista_Load(object sender, EventArgs e)
         {
             var http = new HttpClient();
 

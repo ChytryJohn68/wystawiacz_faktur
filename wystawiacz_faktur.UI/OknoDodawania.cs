@@ -20,18 +20,16 @@ namespace wystawiacz_faktur.UI
         public OknoDodawania()
         {
             InitializeComponent();
-            this.Load += ProduktLista_Load;
+            
 
 
         }
-        private async void ProduktLista_Load(object sender, EventArgs e)
+        private async void ProduktLista_Post(object sender, EventArgs e)
         {
-            var http = new HttpClient();
+            
 
-            var kontrahent = await http.PostAsJsonAsync<IList<KontrahentListItemDTO>>("https://localhost:7174/api/kontrahent/lista",
+           
 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = kontrahent;
         }
         public enum TrybOtwarciaOkna
         {
@@ -44,12 +42,12 @@ namespace wystawiacz_faktur.UI
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text == null || maskedTextBox1.Text == null || textBox3.Text == null || textBox5.Text == null || textBox6.Text == null || comboBox1.SelectedItem == null)
-            {
-                MessageBox.Show("NIE PODANO WSZYSTKICH WARTOSCI");
-                return;
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(maskedTextBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox5.Text) || string.IsNullOrWhiteSpace(textBox6.Text) || comboBox1.SelectedItem == null) 
+            { 
+                MessageBox.Show("NIE PODANO WSZYSTKICH WARTOŚCI"); 
+                return; 
             }
             String TxtNazwa = textBox1.Text;
             String TxtNIP = maskedTextBox1.Text;
@@ -87,7 +85,9 @@ namespace wystawiacz_faktur.UI
                 miasto = TxtMiasto,
                 typ = TxtTyp
             });
-            service.DodajKontrahentList(result);
+            var http = new HttpClient();
+            var kontrahent = await http.PostAsJsonAsync("https://localhost:7174/api/kontrahent/dodaj-kontrahent", result);
+           
             MessageBox.Show("Dodano kontrahenta");
             this.Close();
 

@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,8 +21,14 @@ namespace wystawiacz_faktur.UI
         {
             InitializeComponent();
         }
+        private async void ProduktLista_Post(object sender, EventArgs e)
+        {
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+
+        }
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == null || maskedTextBox1.Text == null || maskedTextBox2.Text == null || textBox5.Text == null || maskedTextBox3.Text == null || maskedTextBox4.Text == null || maskedTextBox5.Text == null)
             {
@@ -51,7 +59,9 @@ namespace wystawiacz_faktur.UI
                 wartosc_vat = TxtWartoscVAT,
                 ilosc = int.Parse(TxtIlosc)
             });
-            service.DodajProduktList(result);
+            var http = new HttpClient();
+            var kontrahent = await http.PostAsJsonAsync("https://localhost:7174/api/faktura/dodaj-produkt", result);
+
             MessageBox.Show("Dodano kontrahenta");
             this.Close();
         }

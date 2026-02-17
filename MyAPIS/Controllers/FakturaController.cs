@@ -44,7 +44,7 @@ namespace MyApp.Api.Controllers
         }
 
         [HttpGet("produkty-do-update/{id}")]
-        public ActionResult PobierzProduktyDoUpdate(int id)
+        public ActionResult<IList<UpdateProduktListItemDTO>> PobierzProduktyDoUpdate(int id)
         {
             var wynik = _fakturaService.DownloadForUpdateProduktList(id);
             return Ok(wynik);
