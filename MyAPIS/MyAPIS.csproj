@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\wystawiacz_faktur.DTO\wystawiacz_faktur.DTO.csproj" />
     <ProjectReference Include="..\wystawiacz_faktur.service\wystawiacz_faktur.service.csproj" />
   </ItemGroup>
 

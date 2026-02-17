@@ -1,0 +1,50 @@
+﻿﻿
+@model IEnumerable<wystawiacz_faktur.DTO.KontrahentListItemDTO>
+
+@{
+    ViewData["Title"] = "Lista Kontrahentów";
+}
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .table th, .table td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+    .table th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+    .input {
+        padding: 8px;
+        margin-top: 10px;
+    }
+</style>
+<h1>Kontrahenci Lista</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>NIP</th>
+            <th>adres</th>
+            <th>Numer Konta</th>
+            <th>Typ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.nazwa</td>
+                <td>@k.NIP</td>
+                <td>@k.adres</td>
+                <td>@k.numer_konta</td>
+                <td>@k.typ</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/contact/Create" class="btn btn-primary">Dodaj dane</a>
