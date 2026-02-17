@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using wystawiacz_faktur.DTO;
 using wystawiacz_faktur.service;
-
+using System.Net.Http;
+using System.Net.Http.Json;
 
 
 namespace wystawiacz_faktur.UI
@@ -21,12 +22,19 @@ namespace wystawiacz_faktur.UI
 
         public KontrahenLista()
         {
+
             InitializeComponent();
-            dataGridView1.AutoGenerateColumns = false;
-
-            dataGridView1.DataSource = KontrahentService.PobierzKontrahentList();           
+            this.Load += ProduktLista_Load;
         }
+        private async void ProduktLista_Load(object sender, EventArgs e)
+        {
+            var http = new HttpClient();
 
+            var kontrahent = await http.GetFromJsonAsync<IList<KontrahentListItemDTO>>("https://localhost:7174/api/kontrahent/lista");
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = kontrahent;
+        }
         private void buttonPanel_Paint(object sender, PaintEventArgs e)
         {
 

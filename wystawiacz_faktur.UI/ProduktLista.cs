@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using wystawiacz_faktur.DTO;
 using wystawiacz_faktur.service;
+using System.Net.Http;
+using System.Net.Http.Json;
+
 
 namespace wystawiacz_faktur.UI
 {
@@ -18,21 +21,23 @@ namespace wystawiacz_faktur.UI
         public ProduktLista()
         {
             InitializeComponent();
-            dataGridView1.AutoGenerateColumns = false;
+            this.Load += ProduktLista_Load;
 
-            dataGridView1.DataSource = FakturaService.PobierzFakturaList();
         }
+        private async void ProduktLista_Load(object sender, EventArgs e)
+        {
+            var http = new HttpClient();
 
+            var faktury = await http.GetFromJsonAsync<IList<FakturaListItemDTO>>("https://localhost:7174/api/faktura/lista");
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = faktury;
+        }
         private void buttonPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
-
-        private void ProduktLista_Load(object sender, EventArgs e)
-        {
-
-        }
+      
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Dodawanie nowego produktu");

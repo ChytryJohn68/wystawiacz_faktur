@@ -1,3 +1,4 @@
+using wystawiacz_faktur.repository;
 using wystawiacz_faktur.service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,10 @@ builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddScoped<FakturaService>();
+builder.Services.AddScoped<FakturaRespository>();
+builder.Services.AddScoped<KontrahentRepository>();
+
 builder.Services.AddScoped<KontrahentService>();
 var app = builder.Build();
 

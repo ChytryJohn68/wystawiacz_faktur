@@ -59,7 +59,7 @@ namespace wystawiacz_faktur.UI
                 item
             };
             service.UpdateProduktList(result);
-            MessageBox.Show("Dane kontrahenta zostały zaktualizowane");
+            MessageBox.Show("Dane faktury zostały zaktualizowane");
             this.Close();
         }
     }

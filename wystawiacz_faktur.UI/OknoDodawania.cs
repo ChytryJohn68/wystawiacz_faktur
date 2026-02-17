@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -18,9 +20,18 @@ namespace wystawiacz_faktur.UI
         public OknoDodawania()
         {
             InitializeComponent();
+            this.Load += ProduktLista_Load;
 
-            
 
+        }
+        private async void ProduktLista_Load(object sender, EventArgs e)
+        {
+            var http = new HttpClient();
+
+            var kontrahent = await http.PostAsJsonAsync<IList<KontrahentListItemDTO>>("https://localhost:7174/api/kontrahent/lista",
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = kontrahent;
         }
         public enum TrybOtwarciaOkna
         {
@@ -82,10 +93,7 @@ namespace wystawiacz_faktur.UI
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

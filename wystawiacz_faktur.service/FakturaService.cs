@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using wystawiacz_faktur.DTO;
 using wystawiacz_faktur.repository;
 
@@ -24,9 +25,9 @@ namespace wystawiacz_faktur.service
         {
             return FakturaRespository.UpdateProduktList(lista);
         }
-        public IList<UpdateProduktListItemDTO> DownloadForUpdateProduktList(int idNabywca)
+        public IList<UpdateProduktListItemDTO> DownloadForUpdateProduktList(int idProd)
         {
-            return FakturaRespository.DownloadForUpdateProduktList(idNabywca).ToList();
+            return FakturaRespository.DownloadForUpdateProduktList(idProd).ToList();
         }
     }
 }
