@@ -24,48 +24,34 @@ namespace wystawiacz_faktur.UI
         private async void ProduktLista_Post(object sender, EventArgs e)
         {
 
-
-
-
         }
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == null || maskedTextBox1.Text == null || maskedTextBox2.Text == null || textBox5.Text == null || maskedTextBox3.Text == null || maskedTextBox4.Text == null || maskedTextBox5.Text == null)
+            if (textBox1.Text == null || numericUpDown3.Text == null || numericUpDown2.Text == null || textBox5.Text == null || numericUpDown1.Text == null || numericUpDown4.Text == null || numericUpDown5.Text == null)
             {
                 MessageBox.Show("NIE PODANO WSZYSTKICH WARTOSCI");
                 return;
             }
             
-            String TxtNazwa = textBox1.Text;
-            String TxtCenaBrutto = maskedTextBox1.Text;
-            String TxtCenaNetto = maskedTextBox2.Text;
-            String TxtVAT = textBox5.Text;
-            String TxtJednMiary = maskedTextBox3.Text;
-            String TxtWartoscVAT = maskedTextBox4.Text;
-            String TxtIlosc = maskedTextBox5.Text;
-           
-            var service = new FakturaService();
-           
-            
-
-            var result = new List<AddProduktListItemDTO>();
-            result.Add(new AddProduktListItemDTO
+            var item = new AddProduktListItemDTO
             {
-                nazwa = TxtNazwa,
-                cena_brutto = TxtCenaBrutto,
-                cena_netto = TxtCenaNetto,
-                VAT = TxtVAT,   
-                Jedn_miary = TxtJednMiary,
-                wartosc_vat = TxtWartoscVAT,
-                ilosc = int.Parse(TxtIlosc)
-            });
+                nazwa = textBox1.Text,
+                Jedn_miary = textBox5.Text,
+                cena_brutto = decimal.Parse(numericUpDown3.Text),
+                cena_netto = decimal.Parse(numericUpDown2.Text),
+                VAT = decimal.Parse(numericUpDown1.Text),   
+                wartosc_vat = decimal.Parse(numericUpDown4.Text),
+                ilosc = int.Parse(numericUpDown5.Text)
+            };
+            var result = new List<AddProduktListItemDTO>
+            {
+                item
+            };
             var http = new HttpClient();
-            var kontrahent = await http.PostAsJsonAsync("https://localhost:7174/api/faktura/dodaj-produkt", result);
-
-            MessageBox.Show("Dodano kontrahenta");
+            var produkt = await http.PostAsJsonAsync("https://localhost:7174/api/faktura/dodaj-produkt", result);
+            MessageBox.Show("Dodano Produkt");
             this.Close();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();

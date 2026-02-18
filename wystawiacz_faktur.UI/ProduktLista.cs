@@ -4,20 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using wystawiacz_faktur.DTO;
 using wystawiacz_faktur.service;
-using System.Net.Http;
-using System.Net.Http.Json;
+using static System.Net.WebRequestMethods;
 
 
 namespace wystawiacz_faktur.UI
 {
     public partial class ProduktLista : UserControl
     {
-        public FakturaService FakturaService = new FakturaService();
         public ProduktLista()
         {
             InitializeComponent();
@@ -27,16 +27,11 @@ namespace wystawiacz_faktur.UI
         private async void ProduktLista_Load(object sender, EventArgs e)
         {
             var http = new HttpClient();
-
             var faktury = await http.GetFromJsonAsync<IList<FakturaListItemDTO>>("https://localhost:7174/api/faktura/lista");
-
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = faktury;
         }
-        private void buttonPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
       
         private void button1_Click(object sender, EventArgs e)
         {
@@ -45,11 +40,9 @@ namespace wystawiacz_faktur.UI
             okno.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Czy na pewno chcesz usunąc wybranego kontrahenta?", "Usuwanie", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-
-
             if (dialog == DialogResult.Yes)
             {
                 MessageBox.Show("Skasowano kontrahenta", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -57,16 +50,13 @@ namespace wystawiacz_faktur.UI
                 var selectedObject = selectedRow.DataBoundItem as FakturaListItemDTO;
 
                 String id = selectedObject.id_faktura_poz.ToString();
-                var service = new FakturaService();
                 var result = new List<DropProduktListItemDTO>();
                 result.Add(new DropProduktListItemDTO
                 {
                     id_faktura_poz = id
                 });
-                service.UsunProduktList(result);
-
-
-
+                var http = new HttpClient();
+                var produkt = await http.PostAsJsonAsync("https://localhost:7174/api/faktura/usun-produkt", result);
             }
             else if (dialog == DialogResult.No)
             {
@@ -78,32 +68,24 @@ namespace wystawiacz_faktur.UI
                 MessageBox.Show("Usuwanie anulowane", "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Aktualizowanie kontrahenta");
             var selectedRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
             var selectedObject = selectedRow.DataBoundItem as FakturaListItemDTO;
-
             int id = selectedObject.id_faktura_poz;
-            var service = new FakturaService();
-
-            
             var okno = new Aktualizuj_prod(id);
             okno.ShowDialog();
-
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private async void button4_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = FakturaService.PobierzFakturaList();
+            var http = new HttpClient();
+            dataGridView1.DataSource = await http.GetFromJsonAsync<IList<FakturaListItemDTO>>("https://localhost:7174/api/faktura/lista");
         }
     }
 }

@@ -97,12 +97,12 @@ namespace wystawiacz_faktur.repository
                                 lista.Add(new UpdateProduktListItemDTO
                                 {
                                     nazwa = reader.GetString(0),
-                                    cena_brutto = reader.GetString(1),
-                                    cena_netto = reader.GetString(2),
-                                    VAT = reader.GetString(3),
+                                    cena_brutto = reader.GetDecimal(1),
+                                    cena_netto = reader.GetDecimal(2),
+                                    VAT = reader.GetDecimal(3),
                                     Jedn_miary = reader.GetString(4),
-                                    wartosc_vat = reader.GetString(5),
-                                    ilosc = reader.GetString(6)
+                                    wartosc_vat = reader.GetDecimal(5),
+                                    ilosc = reader.GetInt32(6)
                                 });
 
                             }
@@ -126,7 +126,7 @@ namespace wystawiacz_faktur.repository
                 conn.Open();
                 using (var sql = new MySqlCommand("UPDATE faktura_poz SET nazwa = @nazwa, cena_brutto = @cena_brutto, cena_netto = @cena_netto, VAT = @VAT, Jedn_miary = @Jedn_miary, wartosc_vat = @wartosc_vat, ilosc = @ilosc WHERE id_faktura_poz = @id_faktura_poz", conn))
                 {
-                    sql.Parameters.AddWithValue("@id_nabywca", lista[0].id_faktura_poz);
+                    sql.Parameters.AddWithValue("@id_faktura_poz", lista[0].id_faktura_poz);
                     sql.Parameters.AddWithValue("@nazwa", lista[0].nazwa);
                     sql.Parameters.AddWithValue("@cena_brutto", lista[0].cena_brutto);
                     sql.Parameters.AddWithValue("@cena_netto", lista[0].cena_netto);

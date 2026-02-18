@@ -5,13 +5,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using wystawiacz_faktur.DTO;
 using wystawiacz_faktur.service;
-using System.Net.Http;
-using System.Net.Http.Json;
+using static System.Net.WebRequestMethods;
 
 
 namespace wystawiacz_faktur.UI
@@ -48,7 +49,7 @@ namespace wystawiacz_faktur.UI
             okno.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Czy na pewno chcesz usunąc wybranego kontrahenta?", "Usuwanie", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
@@ -66,8 +67,8 @@ namespace wystawiacz_faktur.UI
                 {
                     id_nabywca = id
                 });
-                service.UsunKontrahentList(result);
-                
+                var http = new HttpClient();
+                var kontrahent = await http.PostAsJsonAsync("https://localhost:7174/api/faktura/usun-kontrahent", result);
 
 
             }

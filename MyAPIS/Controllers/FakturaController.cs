@@ -43,10 +43,11 @@ namespace MyApp.Api.Controllers
             return Ok(wynik);
         }
 
-        [HttpGet("produkty-do-update/{id}")]
-        public ActionResult<IList<UpdateProduktListItemDTO>> PobierzProduktyDoUpdate(int id)
+        [HttpGet("produkty-do-update/{IdProd}")]
+        public ActionResult<IList<UpdateProduktListItemDTO>> DownloadForUpdateProduktList(int IdProd)
         {
-            var wynik = _fakturaService.DownloadForUpdateProduktList(id);
+
+            var wynik = _fakturaService.DownloadForUpdateProduktList(IdProd);
             return Ok(wynik);
         }
     }
