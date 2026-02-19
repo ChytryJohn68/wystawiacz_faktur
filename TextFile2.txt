@@ -1,0 +1,116 @@
+
+
+public IList<FakturaListItemDTO> PobierzProduktList()
+{
+    var result = new List<FakturaListItemDTO>();
+
+    try
+    {
+        using (var db = new DataEntities())
+        {
+            foreach (var item in db.produkt)
+            {
+                result.Add(new FakturaListItemDTO
+                {
+                    id_faktura_poz = item.id_faktura_poz,
+                    nazwa = item.nazwa,
+                    cena_netto = item.cena_netto,
+                    wartosc_vat = item.wartosc_vat,
+                    ilosc = item.ilosc,
+                });
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
+
+    return result;
+}
+
+        public IList<AddKontrahentListItemDTO> DodajKontrahentList(IList<AddKontrahentListItemDTO> lista)
+        {
+            var result = new List<AddKontrahentListItemDTO>();
+
+            try
+            {
+                using (var db = new DataEntities())
+                {
+                    var kontrahent = new kontrahent
+                    {
+                        nazwa = lista[0].nazwa,
+                        NIP = lista[0].NIP,
+                        adres = lista[0].adres,
+                        numer_konta = lista[0].numer_konta,
+                        kod_pocztowy = lista[0].kod_pocztowy,
+                        miasto = lista[0].miasto,
+                        typ = lista[0].typ
+                    };
+                    db.kontrahent.Add(kontrahent);
+                    db.SaveChanges();
+                }
+            
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return lista;
+        }
+
+        public IList<DropKontrahentListItemDTO> UsunKontrahentList(IList<DropKontrahentListItemDTO> lista)
+        {
+            var result = new List<DropKontrahentListItemDTO>();
+            using (var db = new DataEntities())
+            {
+                var kontrahent = db.kontrahent.Where(x => x.id_nabywca == lista[0].id_nabywca).FirstOrDefault();
+                if (kontrahent != null)
+                {
+                    db.kontrahent.Remove(kontrahent);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public IList<UpdateKontrahentListItemDTO> DownloadForUpdateKontrahentList(int idNabywca)
+        {
+            var result = new List<UpdateKontrahentListItemDTO>();
+            using (var db = new DataEntities())
+            {
+                var kontrahent = db.kontrahent.Where(x => x.id_nabywca == idNabywca).FirstOrDefault();
+                if (kontrahent != null)
+                {
+                    result.Add(new UpdateKontrahentListItemDTO
+                    {
+                        id_nabywca = kontrahent.id_nabywca,
+                        nazwa = kontrahent.nazwa,
+                        NIP = kontrahent.NIP,
+                        adres = kontrahent.adres,
+                        numer_konta = kontrahent.numer_konta,
+                        kod_pocztowy = kontrahent.kod_pocztowy,
+                        miasto = kontrahent.miasto,
+                        typ = kontrahent.typ
+                    });
+                }
+            }
+        }
+        public IList<UpdateKontrahentListItemDTO> UpdateKontrahentList(IList<UpdateKontrahentListItemDTO> lista)
+        {
+            var result = new List<UpdateKontrahentListItemDTO>();
+
+            using (var db = new DataEntities())
+            {
+                var kontrahent = db.kontrahent.Where(x => x.id_nabywca == lista[0].id_nabywca).FirstOrDefault();
+                if (kontrahent != null)
+                {
+                    kontrahent.nazwa = lista[0].nazwa;
+                    kontrahent.NIP = lista[0].NIP;
+                    kontrahent.adres = lista[0].adres;
+                    kontrahent.numer_konta = lista[0].numer_konta;
+                    kontrahent.kod_pocztowy = lista[0].kod_pocztowy;
+                    kontrahent.miasto = lista[0].miasto;
+                    kontrahent.typ = lista[0].typ;
+                    db.SaveChanges();
+                }
+        }
+            

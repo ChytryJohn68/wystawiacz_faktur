@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="TextFile1.txt" />
+    <File Path="TextFile2.txt" />
+  </Folder>
   <Project Path="MyAPIS/MyAPIS.csproj" Id="fe049ba2-1d5b-45d9-82d7-062348fdb14b" />
   <Project Path="wystawiacz_faktur.DTO/wystawiacz_faktur.DTO.csproj" Id="deb530dd-ae52-47a1-8451-684edfbb7ae5" />
   <Project Path="wystawiacz_faktur.model/wystawiacz_faktur.model.csproj" />
