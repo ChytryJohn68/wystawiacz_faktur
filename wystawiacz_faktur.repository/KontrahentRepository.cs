@@ -15,38 +15,30 @@ namespace wystawiacz_faktur.repository
         public IList<KontrahentListItemDTO> PobierzKontrahentList()
         {
             var result = new List<KontrahentListItemDTO>();
-            var connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
-            using (var conn = new MySqlConnection(connStr))
+
+            try
             {
-                conn.Open();
-                try
+                using (var db = new kontrahentContext())
                 {
-                    using (var sql = new MySqlCommand("SELECT id_nabywca, nazwa, NIP, adres, numer_konta, typ FROM kontrahent", conn))
-                    using (var reader = sql.ExecuteReader())
+                    foreach (var item in db.kontrahent)
                     {
-                        while (reader.Read())
+                        result.Add(new KontrahentListItemDTO
                         {
-                            result.Add(new KontrahentListItemDTO
-                            {
-
-                                id_nabywca = reader.GetInt32(0),
-                                nazwa = reader.GetString(1),
-                                NIP = reader.GetString(2),
-                                adres = reader.GetString(3),
-                                numer_konta = reader.GetString(4),
-                                typ = reader.GetString(5)
-                            });
-
-                        }
-                        reader.Close();
+                            id_nabywca = item.id_nabywca,
+                            nazwa = item.nazwa,
+                            NIP = item.NIP,
+                            adres = item.adres,
+                            numer_konta = item.numer_konta,
+                            typ = item.typ
+                        });
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             return result;
         }
 

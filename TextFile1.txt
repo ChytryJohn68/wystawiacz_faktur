@@ -30,6 +30,9 @@ public IList<KontrahentListItemDTO> PobierzKontrahentList()
     return result;
 }
 
+
+
+
         public IList<AddKontrahentListItemDTO> DodajKontrahentList(IList<AddKontrahentListItemDTO> lista)
         {
             var result = new List<AddKontrahentListItemDTO>();
