@@ -7,6 +7,7 @@
   <Project Path="wystawiacz_faktur.DTO/wystawiacz_faktur.DTO.csproj" Id="deb530dd-ae52-47a1-8451-684edfbb7ae5" />
   <Project Path="wystawiacz_faktur.model/wystawiacz_faktur.model.csproj" />
   <Project Path="wystawiacz_faktur.repository/wystawiacz_faktur.repository.csproj" Id="689ae11c-3af0-4bf6-a840-21d9ea759d6f" />
+  <Project Path="wystawiacz_faktur.RepositoryEF/wystawiacz_faktur.RepositoryEF.csproj" Id="22ce2f6d-2b48-4a8b-9c03-fabf45d63096" />
   <Project Path="wystawiacz_faktur.service/wystawiacz_faktur.service.csproj" Id="5fdf013a-60d2-493e-9b2b-84c9777c6e97" />
   <Project Path="wystawiacz_faktur.UI/wystawiacz_faktur.UI.csproj" Id="99c32be3-445a-4214-b412-a00b480035b8" />
   <Project Path="wystawiacz_faktur/wystawiacz_faktur.csproj" Id="44b8fadd-7b5a-4d71-81b8-ad443f99967e" />

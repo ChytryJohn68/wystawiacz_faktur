@@ -12,6 +12,7 @@ namespace wystawiacz_faktur.repository
     public class KontrahentRepository
     {
 
+        /*
         public IList<KontrahentListItemDTO> PobierzKontrahentList()
         {
             var result = new List<KontrahentListItemDTO>();
@@ -41,7 +42,43 @@ namespace wystawiacz_faktur.repository
 
             return result;
         }
-
+        */
+        public IList<KontrahentListItemDTO> PobierzKontrahentList()
+        {
+            var result = new List<KontrahentListItemDTO>();
+            var connStr = "server=localhost;database=mydb;user=root;password=DBServer12;";
+            using (var conn = new MySqlConnection(connStr))
+            {
+                conn.Open();
+                try
+                {
+                    using (var sql = new MySqlCommand("SELECT id_nabywca, nazwa, NIP, adres, numer_konta, typ FROM kontrahent", conn))
+                    {
+                        using (var reader = sql.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                result.Add(new KontrahentListItemDTO
+                                {
+                                    id_nabywca = reader.GetInt32(0),
+                                    nazwa = reader.GetString(1),
+                                    NIP = reader.GetString(2),
+                                    adres = reader.GetString(3),
+                                    numer_konta = reader.GetString(4),
+                                    typ = reader.GetString(5)
+                                });
+                            }
+                            reader.Close();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return result;
+        }
         public IList<AddKontrahentListItemDTO> DodajKontrahentList(IList<AddKontrahentListItemDTO> lista)
         {
 

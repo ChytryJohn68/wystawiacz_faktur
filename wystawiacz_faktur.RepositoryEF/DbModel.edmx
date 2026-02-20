@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="praktyki2026Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="faktura_poz">
+          <Key>
+            <PropertyRef Name="id_faktura_poz" />
+          </Key>
+          <Property Name="id_faktura_poz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="100" />
+          <Property Name="cena_brutto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="cena_netto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="VAT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Jedn_miary" Type="varchar" MaxLength="10" />
+          <Property Name="wartosc_vat" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ilosc" Type="int" />
+        </EntityType>
+        <EntityType Name="kontrahent">
+          <Key>
+            <PropertyRef Name="id_nabywca" />
+          </Key>
+          <Property Name="id_nabywca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="50" />
+          <Property Name="NIP" Type="varchar" MaxLength="9" />
+          <Property Name="adres" Type="varchar" MaxLength="50" />
+          <Property Name="numer_konta" Type="varchar" MaxLength="12" />
+          <Property Name="kod_pocztowy" Type="varchar" MaxLength="50" />
+          <Property Name="miasto" Type="varchar" MaxLength="50" />
+          <Property Name="typ" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="praktyki2026ModelStoreContainer">
+          <EntitySet Name="faktura_poz" EntityType="Self.faktura_poz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kontrahent" EntityType="Self.kontrahent" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="praktyki2026Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="faktura_poz">
+          <Key>
+            <PropertyRef Name="id_faktura_poz" />
+          </Key>
+          <Property Name="id_faktura_poz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cena_brutto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="cena_netto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="VAT" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Jedn_miary" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="wartosc_vat" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ilosc" Type="Int32" />
+        </EntityType>
+        <EntityType Name="kontrahent">
+          <Key>
+            <PropertyRef Name="id_nabywca" />
+          </Key>
+          <Property Name="id_nabywca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NIP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numer_konta" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="kod_pocztowy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="miasto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="praktyki2026Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="faktura_poz" EntityType="Self.faktura_poz" />
+          <EntitySet Name="kontrahent" EntityType="Self.kontrahent" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="praktyki2026ModelStoreContainer" CdmEntityContainer="praktyki2026Entities">
+          <EntitySetMapping Name="faktura_poz">
+            <EntityTypeMapping TypeName="praktyki2026Model.faktura_poz">
+              <MappingFragment StoreEntitySet="faktura_poz">
+                <ScalarProperty Name="id_faktura_poz" ColumnName="id_faktura_poz" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="cena_brutto" ColumnName="cena_brutto" />
+                <ScalarProperty Name="cena_netto" ColumnName="cena_netto" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Jedn_miary" ColumnName="Jedn_miary" />
+                <ScalarProperty Name="wartosc_vat" ColumnName="wartosc_vat" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kontrahent">
+            <EntityTypeMapping TypeName="praktyki2026Model.kontrahent">
+              <MappingFragment StoreEntitySet="kontrahent">
+                <ScalarProperty Name="id_nabywca" ColumnName="id_nabywca" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="numer_konta" ColumnName="numer_konta" />
+                <ScalarProperty Name="kod_pocztowy" ColumnName="kod_pocztowy" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="typ" ColumnName="typ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

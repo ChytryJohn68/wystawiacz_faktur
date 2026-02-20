@@ -29,15 +29,15 @@ public IList<FakturaListItemDTO> PobierzProduktList()
     return result;
 }
 
-        public IList<AddKontrahentListItemDTO> DodajKontrahentList(IList<AddKontrahentListItemDTO> lista)
+        public IList<AddProduktListItemDTO> DodajProduktList(IList<AddProduktListItemDTO> lista)
         {
-            var result = new List<AddKontrahentListItemDTO>();
+            var result = new List<AddProduktListItemDTO>();
 
             try
             {
                 using (var db = new DataEntities())
                 {
-                    var kontrahent = new kontrahent
+                    var Produkt = new Produkt
                     {
                         nazwa = lista[0].nazwa,
                         NIP = lista[0].NIP,
@@ -47,7 +47,7 @@ public IList<FakturaListItemDTO> PobierzProduktList()
                         miasto = lista[0].miasto,
                         typ = lista[0].typ
                     };
-                    db.kontrahent.Add(kontrahent);
+                    db.Produkt.Add(Produkt);
                     db.SaveChanges();
                 }
             
@@ -58,58 +58,58 @@ public IList<FakturaListItemDTO> PobierzProduktList()
             return lista;
         }
 
-        public IList<DropKontrahentListItemDTO> UsunKontrahentList(IList<DropKontrahentListItemDTO> lista)
+        public IList<DropProduktListItemDTO> UsunProduktList(IList<DropProduktListItemDTO> lista)
         {
-            var result = new List<DropKontrahentListItemDTO>();
+            var result = new List<DropProduktListItemDTO>();
             using (var db = new DataEntities())
             {
-                var kontrahent = db.kontrahent.Where(x => x.id_nabywca == lista[0].id_nabywca).FirstOrDefault();
-                if (kontrahent != null)
+                var Produkt = db.Produkt.Where(x => x.id_faktura_poz == lista[0].id_faktura_poz).FirstOrDefault();
+                if (Produkt != null)
                 {
-                    db.kontrahent.Remove(kontrahent);
+                    db.Produkt.Remove(Produkt);
                     db.SaveChanges();
                 }
             }
         }
 
-        public IList<UpdateKontrahentListItemDTO> DownloadForUpdateKontrahentList(int idNabywca)
+        public IList<UpdateProduktListItemDTO> DownloadForUpdateProduktList(int idProd)
         {
-            var result = new List<UpdateKontrahentListItemDTO>();
+            var result = new List<UpdateProduktListItemDTO>();
             using (var db = new DataEntities())
             {
-                var kontrahent = db.kontrahent.Where(x => x.id_nabywca == idNabywca).FirstOrDefault();
-                if (kontrahent != null)
+                var Produkt = db.Produkt.Where(x => x.id_faktura_poz == idProd).FirstOrDefault();
+                if (Produkt != null)
                 {
-                    result.Add(new UpdateKontrahentListItemDTO
+                    result.Add(new UpdateProduktListItemDTO
                     {
-                        id_nabywca = kontrahent.id_nabywca,
-                        nazwa = kontrahent.nazwa,
-                        NIP = kontrahent.NIP,
-                        adres = kontrahent.adres,
-                        numer_konta = kontrahent.numer_konta,
-                        kod_pocztowy = kontrahent.kod_pocztowy,
-                        miasto = kontrahent.miasto,
-                        typ = kontrahent.typ
+                        id_faktura_poz = Produkt.id_faktura_poz,
+                        nazwa = Produkt.nazwa,
+                        cena_brutto = Produkt.cena_brutto,
+                        cena_netto = Produkt.cena_netto,
+                        VAT = Produkt.VAT,
+                        Jedn_miary = Produkt.Jedn_miary,
+                        wartosc_vat = Produkt.wartosc_vat,
+                        ilosc = Produkt.ilosc
                     });
                 }
             }
         }
-        public IList<UpdateKontrahentListItemDTO> UpdateKontrahentList(IList<UpdateKontrahentListItemDTO> lista)
+        public IList<UpdateProduktListItemDTO> UpdateProduktList(IList<UpdateProduktListItemDTO> lista)
         {
-            var result = new List<UpdateKontrahentListItemDTO>();
+            var result = new List<UpdateProduktListItemDTO>();
 
             using (var db = new DataEntities())
             {
-                var kontrahent = db.kontrahent.Where(x => x.id_nabywca == lista[0].id_nabywca).FirstOrDefault();
-                if (kontrahent != null)
+                var Produkt = db.Produkt.Where(x => x.id_faktura_poz == lista[0].id_faktura_poz).FirstOrDefault();
+                if (Produkt != null)
                 {
-                    kontrahent.nazwa = lista[0].nazwa;
-                    kontrahent.NIP = lista[0].NIP;
-                    kontrahent.adres = lista[0].adres;
-                    kontrahent.numer_konta = lista[0].numer_konta;
-                    kontrahent.kod_pocztowy = lista[0].kod_pocztowy;
-                    kontrahent.miasto = lista[0].miasto;
-                    kontrahent.typ = lista[0].typ;
+                    Produkt.nazwa = lista[0].nazwa;
+                    Produkt.cena_brutto = lista[0].cena_brutto;
+                    Produkt.cena_netto = lista[0].cena_netto;
+                    Produkt.VAT = lista[0].numer_konta;
+                    Produkt.Jedn_miary = lista[0].Jedn_miary;
+                    Produkt.wartosc_vat = lista[0].wartosc_vat;
+                    Produkt.ilosc = lista[0].ilosc;
                     db.SaveChanges();
                 }
         }

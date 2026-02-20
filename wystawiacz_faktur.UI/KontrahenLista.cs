@@ -14,7 +14,6 @@ using wystawiacz_faktur.DTO;
 using wystawiacz_faktur.service;
 using static System.Net.WebRequestMethods;
 
-
 namespace wystawiacz_faktur.UI
 {
     public partial class KontrahenLista : UserControl

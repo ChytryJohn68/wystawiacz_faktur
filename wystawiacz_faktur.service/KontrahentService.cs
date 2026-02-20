@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using wystawiacz_faktur.DTO;
-using wystawiacz_faktur.repository;
+
+using wystawiacz_faktur.RepositoryEF;
 
 namespace wystawiacz_faktur.service
 {
@@ -24,9 +25,9 @@ namespace wystawiacz_faktur.service
         {
             return KontrahentRepository.UpdateKontrahentList(lista);
         }
-        public IList<UpdateKontrahentListItemDTO> DownloadForUpdateKontrahentList(int idNabywca)
+        public IList<UpdateKontrahentListItemDTO> DownloadForUpdateKontrahentList(int idNab)
         {
-            return KontrahentRepository.DownloadForUpdateKontrahentList(idNabywca).ToList();
+            return KontrahentRepository.DownloadForUpdateKontrahentList(idNab).ToList();
         }
     }
 }
